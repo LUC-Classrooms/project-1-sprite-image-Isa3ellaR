@@ -1,37 +1,42 @@
-/**
- * Project 1 - Interactive Image
- * Name: 
- * Comments: 
- */
-
-// Global Variables go here
-
+var x, y, a = 0;
 function setup(){
-  // this function will run once
-  createCanvas(600, 400); // create a 600x400 pixel drawing canvas
-
+  createCanvas(600, 400);
+  x=width/2
+  y=height/2
 }
 
 function draw(){
-  // this function runs again and again (60x per second)
-  background(200); //light gray background
-  
-  // add your image drawing code here
-
-/* 
-  Use the following if()...else() structure to incorporate mouse click control of your animation
-*/
-  if(mouseIsPressed){
-    //check each frame to see if the mouse is pressed, then do something
-  } else {
-    // do something here if the mouse is NOT pressed
+  background(255, 160, 255);
+  // add your drawing code here ...
+  x++
+  if(x>width){
+    x=0
   }
-}
+  a += .01;
+  push()
+  translate(x, y)
+  rotate(a)
+  //Ears
+  stroke(255, 160, 255);
+  fill(222, 44, 147)
+  arc(-75, -80, 100, 100, HALF_PI, TWO_PI);
+  arc(75, -80, 100, 100, PI, HALF_PI);
+  stroke(252, 137, 185);
+  fill(252, 137, 185);
+  ellipse(-75, -80, 75);
+  ellipse(75, -80, 75);
+  //Face
+ fill(222, 44, 147);
+ ellipse(0, 0, 175);
+  //eyes
+  stroke(0);
+  fill(255)
+  ellipse(-50, -10, 50);
+  ellipse(50, -10, 50);
+  pop()
 
-/** 
- * the mousePressed() function is separate from draw(). 
- * It only runs (one time) if the mouse is clicked
-*/
-function mousePressed(){
-  // add code here if you want something to execute once each time the mouse is pressed
+  
+ 
+
+
 }
